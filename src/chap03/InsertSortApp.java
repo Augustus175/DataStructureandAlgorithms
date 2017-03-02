@@ -2,6 +2,7 @@ package chap03;
 
 /**
  * Created by zhangzhibo on 17-3-2.
+ *  Page 70
  */
 public class InsertSortApp {
     public static void main(String[] args) {
