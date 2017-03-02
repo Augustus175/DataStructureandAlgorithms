@@ -3,11 +3,11 @@ package chap03;
 /**
  * Created by zhangzhibo on 17-3-2.
  */
-class ArrayBub {
+class InsertSort {
     private long[] a;
     private int nElems;
 
-    public ArrayBub(int max) {
+    public InsertSort(int max) {
         a = new long[max];
         nElems = 0;
     }
@@ -25,23 +25,20 @@ class ArrayBub {
         System.out.println(a[nElems - 1]);
     }
 
-    public void bubbleSort()
+    public void insertSort()
     {
         int out ;
         int in ;
-//        定义外层循环
-//        有无等号效果是一样的
-//        for ( out = nElems-1; out >=1 ; out--) {
-        for ( out = nElems-1; out >1 ; out--) {
-//            定义内层循环
-            for (in = 0; in < out; in++) {
-                if(a[in]>a[in+1])
-                {
-                    long tmp = a[in];
-                    a[in] = a[in+1];
-                    a[in+1] = tmp;
-                }
+        for ( out = 1; out < nElems; out++) {
+            in = out;
+            long tmp  = a[out];
+//            a[in-1]>tmp是为了比较tmp和左侧有序队中每一个的大小，若是tmp比左侧队中的一个小，就把有序队每一个向后移动一个
+            while (in > 0&&a[in-1]>tmp )
+            {
+                a[in] = a[in-1];
+                in--;
             }
+            a[in] = tmp;
 
         }
     }

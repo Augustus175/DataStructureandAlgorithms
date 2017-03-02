@@ -2,11 +2,11 @@ package chap03;
 
 /**
  * Created by zhangzhibo on 17-3-2.
- *  Page 58
+ *  Page 64
  */
-public class BubbleSortApp {
+public class SelectSortApp {
     public static void main(String[] args) {
-        BubbleSort arr = new BubbleSort(10);
+        SelectSort arr = new SelectSort(10);
         arr.insert(12);
         arr.insert(10);
         arr.insert(1);
@@ -17,7 +17,7 @@ public class BubbleSortApp {
         arr.insert(0);
         arr.insert(3);
         arr.display();
-        arr.bubbleSort();
+        arr.selectSort();
         arr.display();
     }
 }
