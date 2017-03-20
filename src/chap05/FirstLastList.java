@@ -6,7 +6,6 @@ package chap05;
 class FirstLastList extends LinkList {
 //    private Link first;
     private Link last;
-
     public FirstLastList() {
         super();
         this.last = null;

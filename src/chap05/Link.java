@@ -130,7 +130,7 @@ class LinkListApp {
             System.out.print("Delete the num is ");
             d.displayLink();
         } else {
-            System.out.print("Can't the num ");
+            System.out.print("Can't found the num ");
         }
 //        while (!theList.isEmpty()) {
 //            Link aLinlk = theList.deleteFirst();
