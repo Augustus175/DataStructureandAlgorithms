@@ -143,6 +143,8 @@ public class DoublyLinkedApp {
         theList.insertLast(13);
         theList.insertLast(14);
 
+
+
         System.out.println("------------------------------------------------------------------");
         theList.displayForward();
         System.out.println();
