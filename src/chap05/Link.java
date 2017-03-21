@@ -15,7 +15,7 @@ class Link {
     }
 
     public void displayLink() {
-        System.out.println("{" + iData + ": " + dData + "}");
+        System.out.print(" {" + iData + ": " + dData + "} ");
     }
 }
 
@@ -99,6 +99,21 @@ class LinkList {
         }
         System.out.println(" ");
     }
+    public  void ReversalLink()
+    {
+        Link current = first.next;
+        Link previous = first;
+        first.next = null;
+        int i = 0;
+        while (current != null)
+        {
+            Link tmp = new Link(current.iData,current.dData);
+            tmp.next = previous;
+            previous = tmp;
+            current = current.next;
+        }
+        first = previous;
+    }
 }
 
 class LinkListApp {
@@ -108,6 +123,7 @@ class LinkListApp {
         if (f1 != null) {
             System.out.print("Found the num is ");
             f1.displayLink();
+            System.out.println();
         } else {
             System.out.println("can't find the link");
         }
@@ -121,6 +137,7 @@ class LinkListApp {
         if (f != null) {
             System.out.print("Found the num is ");
             f.displayLink();
+            System.out.println();
         } else {
             System.out.println("can't find the link");
         }
@@ -129,6 +146,7 @@ class LinkListApp {
 
             System.out.print("Delete the num is ");
             d.displayLink();
+            System.out.println();
         } else {
             System.out.print("Can't found the num ");
         }
@@ -137,6 +155,12 @@ class LinkListApp {
 //            System.out.print("Deleted : ");
 //            aLinlk.displayLink();
 //        }
+        System.out.println();
+        System.out.println("*****************************");
         theList.displayList();
+        System.out.println();
+        theList.ReversalLink();
+        theList.displayList();
+
     }
 }
