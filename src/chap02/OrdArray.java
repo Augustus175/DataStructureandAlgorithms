@@ -14,22 +14,42 @@ class OrdArray {
         nElems = 0;
     }
 
-    public int find(long serchKey) {
+
+    public int find(long searchKey) {
         int lowerBound = 0;
         int upperBound = nElems - 1;
         int curIn = 0;
         while (true) {
             curIn = (lowerBound + upperBound) / 2;
-            if (a[curIn] == serchKey) {
+            if (a[curIn] == searchKey) {
                 return curIn;
             } else if (upperBound < lowerBound) {
                 return nElems;
             } else {
-                if (a[curIn] < serchKey) {
+                if (a[curIn] < searchKey) {
                     lowerBound = curIn + 1;
                 } else {
                     upperBound = curIn - 1;
                 }
+            }
+        }
+    }
+//chap06 Page203;
+    public int recfind(long searchKey) {
+        return recFind(0, nElems, searchKey);
+    }
+
+    public int recFind(int lowerBound, int upperBound, long searchKey) {
+        if (upperBound < lowerBound) {
+            return nElems;
+        } else {
+            int curIn = (upperBound + lowerBound) / 2;
+            if (a[curIn] == searchKey) {
+                return curIn;
+            } else if (a[curIn] > searchKey) {
+                return recFind(lowerBound, curIn - 1, searchKey);
+            } else {
+                return recFind(curIn + 1, upperBound, searchKey);
             }
         }
     }

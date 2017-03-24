@@ -23,6 +23,7 @@ public class BinaryFind {
         arr.insert(5);
         arr.display();
         System.out.println(arr.find(29));
+        System.out.println(arr.recfind(29));
         arr.delete(31);
         arr.display();
         arr.insert(31);
