@@ -23,7 +23,7 @@ public class StackX {
         return stackArray[top--];
     }
 
-    public long peek(long tmp) {
+    public long peek() {
         return stackArray[top];
     }
 
