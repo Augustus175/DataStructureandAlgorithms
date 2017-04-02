@@ -22,7 +22,10 @@ class DoublyLinkList {
     private dLink first;
     private dLink last;
 
-    public DoublyLinkList() {
+    public DoublyLinkList()
+
+
+    {
         first = null;
         last = null;
     }
