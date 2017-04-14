@@ -6,52 +6,52 @@ package chap13.BFS;
 class Queue {
     private int maxSize;
     private long[] queArray;
-    private int front ;
+    private int front;
     private int rear;
     private int nItems;
-    public Queue(int s)
-    {
+
+    public Queue(int s) {
         maxSize = s;
         queArray = new long[maxSize];
         front = 0;
         rear = -1;
         nItems = 0;
     }
+
     //    insert和remove环形数组的实现
-    public void insert(long j)
-    {
-        if (rear == maxSize-1)
-        {
+    public void insert(long j) {
+        if (rear == maxSize - 1) {
             rear = -1;
         }
         queArray[++rear] = j;
 
         nItems++;
     }
-    public long remove()
-    {
+
+    public long remove() {
         long tmp = queArray[front++];
-        if (front == maxSize)
-        {
-            front =0;
+        if (front == maxSize) {
+            front = 0;
         }
         nItems--;
         return tmp;
     }
-    public long peekFront()
-    {
+
+    public long peekFront() {
         return queArray[front];
     }
-    public  boolean isEmpty()
-    {
+
+    public boolean isEmpty() {
         return (nItems == 0);
     }
 
-    public  boolean isFull()
-    {
+    public boolean isFull() {
         return (nItems == maxSize);
     }
 }
 
 public class BFSApp {
+    public static void main(String[] args) {
+
+    }
 }

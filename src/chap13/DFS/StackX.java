@@ -3,7 +3,7 @@ package chap13.DFS;
 /**
  * Created by zhangzhibo on 17-3-3.
  */
-public class StackX {
+class StackX {
 //    private int maxSize;
     final private int MAXSIZE = 20;
     private int[] stackArray;
