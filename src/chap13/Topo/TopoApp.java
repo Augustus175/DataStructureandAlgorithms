@@ -70,13 +70,19 @@ class Graph {
             isEdge = false;
             if (!vertexList[row].wasCheked) {
                 for (int col = 0; col < orig_nVerts; col++) {
-                    if (adjMat[row][col] > 0) {
-                        isEdge = true;
-                        break;
+                    if (!vertexList[col].wasCheked)
+                    {
+                        if (adjMat[row][col] > 0) {
+                            isEdge = true;
+                            break;
+                        }
                     }
+
                 }
+            }else{
+                continue;
             }
-            if (isEdge)
+            if (!isEdge)
             {
                 return row;
             }
