@@ -8,12 +8,12 @@ class Edge {
     public int srcVert;
     //    ending edge
     public int destVert;
-    public int distence;
+    public int distance;
 
-    public Edge(int srcVert, int destVert, int distence) {
+    public Edge(int srcVert, int destVert, int distance) {
         this.srcVert = srcVert;
         this.destVert = destVert;
-        this.distence = distence;
+        this.distance = distance;
     }
 }
 
@@ -30,12 +30,12 @@ class PriorityQ {
     public void insert(Edge item) {
         int j;
         for (j = 0; j < size; j++) {
-            if (item.distence >= queArray[j].distence) {
+            if (item.distance >= queArray[j].distance) {
                 break;
             }
         }
         for (int k = size - 1; k >= j; k--) {
-            queArray[k++] = queArray[k];
+            queArray[k+1] = queArray[k];
         }
         queArray[j] = item;
         size++;
@@ -151,9 +151,10 @@ class Graph {
             System.out.print(vertexList[sourceVert].label);
             System.out.print(vertexList[currentVert].label);
             System.out.print(" ");
-            for (int i = 0; i < nVerts; i++) {
-                vertexList[i].isInTree = false;
-            }
+
+        }
+        for (int i = 0; i < nVerts; i++) {
+            vertexList[i].isInTree = false;
         }
     }
 
@@ -161,7 +162,7 @@ class Graph {
         int queueIndex = thePQ.find(newVert);
         if (queueIndex != -1) {
             Edge tempEdge = thePQ.peekN(queueIndex);
-            int oldDist = tempEdge.distence;
+            int oldDist = tempEdge.distance;
             if (oldDist > newDist) {
                 thePQ.removeN(queueIndex);
                 Edge theEdge = new Edge(currentVert, newVert, newDist);
