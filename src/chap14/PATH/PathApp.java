@@ -7,7 +7,7 @@ class DistPar {
     public int distance;
     public int parentVert;
 
-    public DistPar(int distance, int parentVert) {
+    public DistPar(int parentVert, int distance) {
         this.distance = distance;
         this.parentVert = parentVert;
     }
@@ -25,7 +25,7 @@ class Vertex {
 
 class Graph {
     private final int MAX_VERTS = 20;
-    private final int INFINITY = Integer.MAX_VALUE;
+    private final int INFINITY = 1000000;
     private Vertex[] vertexList;
     private int adjMat[][];
     private int nVerts;
@@ -112,13 +112,13 @@ class Graph {
         }
         return indexMin;
     }
-    public void displayPaths(){
+
+    public void displayPaths() {
         for (int j = 0; j < nVerts; j++) {
-            System.out.println(vertexList[j].label + " = ");
-            if (sPath[j].distance == INFINITY)
-            {
+            System.out.print(vertexList[j].label + " = ");
+            if (sPath[j].distance == INFINITY) {
                 System.out.print("inf");
-            }else {
+            } else {
                 System.out.print(sPath[j].distance);
             }
             char parent = vertexList[sPath[j].parentVert].label;
@@ -142,14 +142,14 @@ public class PathApp {
         theGraph.addVertex('C');
         theGraph.addVertex('D');
         theGraph.addVertex('E');
-        theGraph.addEdge(0,1,50);
-        theGraph.addEdge(0,3,80);
-        theGraph.addEdge(1,2,60);
-        theGraph.addEdge(1,3,90);
-        theGraph.addEdge(2,4,40);
-        theGraph.addEdge(3,2,20);
-        theGraph.addEdge(3,4,70);
-        theGraph.addEdge(4,1,50);
+        theGraph.addEdge(0, 1, 50);
+        theGraph.addEdge(0, 3, 80);
+        theGraph.addEdge(1, 2, 60);
+        theGraph.addEdge(1, 3, 90);
+        theGraph.addEdge(2, 4, 40);
+        theGraph.addEdge(3, 2, 20);
+        theGraph.addEdge(3, 4, 70);
+        theGraph.addEdge(4, 1, 50);
         System.out.println("Shortest paths : ");
         theGraph.path();
         System.out.println();
