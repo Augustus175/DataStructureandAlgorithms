@@ -1,4 +1,4 @@
-package chap14;
+package chap14.MSTW;
 
 /**
  * Created by zhangzhibo on 17-4-20.
@@ -90,7 +90,7 @@ class Vertex {
 
 class Graph {
     private final int MAX_VERTS = 8;
-    private final int INIFITY = -1;
+    private final int INFINITY = -1;
     private Vertex[] vertexList;
     private int adjMat[][];
     private int nVerts;
@@ -104,7 +104,7 @@ class Graph {
         nVerts = 0;
         for (int i = 0; i < MAX_VERTS; i++) {
             for (int j = 0; j < MAX_VERTS; j++) {
-                adjMat[i][j] = INIFITY;
+                adjMat[i][j] = INFINITY;
             }
         }
         thePQ = new PriorityQ();
@@ -136,7 +136,7 @@ class Graph {
                     continue;
                 }
                 int distance = adjMat[currentVert][j];
-                if (distance == INIFITY) {
+                if (distance == INFINITY) {
                     continue;
                 }
                 putInPQ(j, distance);
