@@ -46,6 +46,7 @@ class Graph {
         }
     }
 
+
     public void addVertex(char lab) {
         vertexList[nVerts++] = new Vertex(lab);
     }
