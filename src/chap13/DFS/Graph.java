@@ -32,7 +32,7 @@ class Graph {
     }
     public void displayVertex(int v)
     {
-        System.out.println(vertexList[v].lable);
+        System.out.println(vertexList[v].label);
     }
     public void dfs()
     {
