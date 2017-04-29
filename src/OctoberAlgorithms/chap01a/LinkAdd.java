@@ -41,11 +41,11 @@ class Link {
             current = current.nextNode;
         }
         System.out.println();
-
     }
 }
 
- class LinkApp {
+
+public class LinkAdd {
     public static void main(String[] args) {
         Link myLink1 = new Link();
         Link myLink2 = new Link();
@@ -92,5 +92,5 @@ class Link {
     }
 }
 
-class LinkAdd {
-}
+
+
