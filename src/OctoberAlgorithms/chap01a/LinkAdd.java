@@ -4,46 +4,6 @@ package OctoberAlgorithms.chap01a;
  * Created by zhangzhibo on 2017/4/28.
  */
 
-/**
- * Created by zhangzhibo on 2017/4/28.
- */
-class Node {
-    public int iData;
-    Node nextNode = null;
-
-    public Node(int iData) {
-        this.iData = iData;
-    }
-}
-
-class Link {
-    public Node root = null;
-
-    public void insert(int iData) {
-        Node newNode = new Node(iData);
-        if (root == null) {
-            root = newNode;
-        } else {
-            Node current = root;
-            Node pre = root;
-            while (current != null) {
-                pre = current;
-                current = current.nextNode;
-            }
-            pre.nextNode = newNode;
-        }
-    }
-
-    public void display() {
-        Node current = root;
-        while (current != null) {
-            System.out.print(current.iData + " ");
-            current = current.nextNode;
-        }
-        System.out.println();
-    }
-}
-
 
 public class LinkAdd {
     public static void main(String[] args) {
