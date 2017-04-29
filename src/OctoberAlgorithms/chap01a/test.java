@@ -15,13 +15,13 @@ public class test {
         for (int i = 0; i < strchr.length; i++) {
             char a = strchr[i];
             if (a >= 48 || a <= 57) {
-                sb.append(a);
+//                sb.append(a);
             }else{
                 if (stack.isEmpty()) {
                     stack.push(a);
                 }else{
                     char tmp = (char)stack.peek();
-                    if ()
+//                    if ()
 
                 }
             }
