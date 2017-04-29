@@ -29,4 +29,14 @@ class Link {
         }
         System.out.println();
     }
+    public int linkLength(){
+        int count = 0;
+        Node current =root;
+        while(current!=null)
+        {
+            count++;
+            current = current.nextNode;
+        }
+        return count;
+    }
 }
