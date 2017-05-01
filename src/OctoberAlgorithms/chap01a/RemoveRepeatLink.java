@@ -6,18 +6,17 @@ package OctoberAlgorithms.chap01a;
 public class RemoveRepeatLink {
     public static void main(String[] args) {
         Link mylink = new Link();
-//        mylink.insert(0);
         mylink.insert(0);
+        mylink.insert(0);
+        mylink.insert(3);
         mylink.insert(1);
         mylink.insert(1);
         mylink.insert(7);
         mylink.insert(8);
-//        mylink.insert(9);
-//        mylink.insert(9);
-//        mylink.insert(9);
+        mylink.insert(8);
+
         mylink.display();
-//        rempveRepeat01(mylink);
-//        mylink.display();
+
         rempveRepeat02(mylink);
         mylink.display();
 
@@ -28,11 +27,9 @@ public class RemoveRepeatLink {
         pre.nextNode = mylink.root;
         Node current = mylink.root;
         Node next = mylink.root;
-        while(current!=null)
-        {
+        while (current != null) {
             next = current.nextNode;
-            while(next!=null&&next.iData==current.iData)
-            {
+            while (next != null && next.iData == current.iData) {
                 next = next.nextNode;
             }
             current.nextNode = next;
@@ -40,36 +37,35 @@ public class RemoveRepeatLink {
         }
 
     }
+
     public static void rempveRepeat02(Link mylink) {
         Node pre = new Node(-1);
+        Node head = pre;
         pre.nextNode = mylink.root;
         Node current = mylink.root;
-        Node next = mylink.root;
-        boolean flag = false;
-        while(current!=null)
-        {
+        Node next;
+
+        while (current != null) {
             next = current.nextNode;
-            int tmp = current.iData;
-            while((next!=null)&&(tmp==next.iData))
-            {
-                next = next.nextNode;
-                flag = true;
+            if ((next == null) || (current.iData != next.iData)) {
+                pre = current;
+                current = next;
+
+            } else {
+                int tmp = current.iData;
+                while ((next != null) && (tmp == next.iData)) {
+                    next = next.nextNode;
+
+                }
+                pre.nextNode = next;
+                current = next;
             }
-//            if((current!=null)&&(current.nextNode!=null)&&(current.iData ==current.nextNode.iData))
-            if(!flag)
-            {
-                pre.nextNode = current;
-                pre =current;
-            }
-            current = next;
 
 
         }
-        System.out.println(mylink.root.iData);
-//        System.out.println(pre.nextNode.iData);
-        if (pre.nextNode!=mylink.root)
-        {
-            mylink.root = pre;
+
+        if (head.nextNode != mylink.root) {
+            mylink.root = head.nextNode;
         }
     }
 
