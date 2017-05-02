@@ -5,25 +5,25 @@ import java.util.*;
 /**
  * Created by zhangzhibo on 17-5-1.
  */
-class Vertex {
-    public int lable;
-    private boolean wasPrined = false;
-
-    public Vertex(int lable) {
-        this.lable = lable;
-    }
-
-}
+//class Vertex {
+//    public int lable;
+//    private boolean wasPrined = false;
+//
+//    public Vertex(int lable) {
+//        this.lable = lable;
+//    }
+//
+//}
 
 class Graph {
-    List<Vertex> vertexList = new ArrayList<>();
+//    List<Vertex> vertexList = new ArrayList<>();
     int[][] adjMat;
     int length;
 
-    public void insert(int lable) {
-        Vertex newVertex = new Vertex(lable);
-        vertexList.add(newVertex);
-    }
+//    public void insert(int lable) {
+//        Vertex newVertex = new Vertex(lable);
+//        vertexList.add(newVertex);
+//    }
 
     public Graph(int length) {
         this.length = length;
