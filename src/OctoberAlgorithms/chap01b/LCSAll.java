@@ -13,7 +13,7 @@ class Node {
     public int row = 0;
     public int colum = 0;
 
-    public Node( int row, int colum) {
+    public Node(int row, int colum) {
         this.path = new StringBuilder();
         this.row = row;
         this.colum = colum;
@@ -64,25 +64,56 @@ public class LCSAll {
             }
         }
         System.out.println(sb.toString());
-        Node start = new Node(i,j);
-        if (chars1[i]==chars2[j])
-        {
-            start.path.append(chars1[i]);
+        i = l1;
+        j = l2;
+        Node start = new Node(i, j);
+        if (chars1[i - 1] == chars2[j - 1]) {
+            start.path.append(chars1[i - 1]);
         }
+        thestatck.push(start);
         while (!thestatck.isEmpty()) {
-            Node tmp = thestatck.pop();
-            int r = tmp.row;
-            int c = tmp.colum;
+            Node tmp = thestatck.peek();
+            if (tmp.row == 0 || tmp.colum == 0) {
+                String path = tmp.path.toString();
+                System.out.println(path);
+                while (!thestatck.isEmpty()) {
+                    Node node = thestatck.peek();
+                    int ii = node.row;
+                    int jj = node.colum;
+                    if ((ii != 0 && jj != 0) && (chess[ii - 1][jj] == chess[ii][jj - 1]) && (chars1[ii - 1] != chars2[jj - 1])) {
+                        Node newNode = new Node(ii, jj + 1);
+                        if (chars1[ii - 1] == chars2[jj] - 1) {
+                            newNode.path.insert(0, node.path.toString());
+                            newNode.path.insert(0, chars1[ii - 1]);
+                        } else {
+                            newNode.path.insert(0, node.path.toString());
+                        }
+                        thestatck.push(newNode);
+                        break;
+                    } else {
+                        thestatck.pop();
+                    }
+//                    }
+                }
+            } else {
+                int tii = tmp.row;
+                int tjj = tmp.colum;
+                if (chars1[tii - 1] == chars2[tjj - 1]) {
+                    Node leftNode = new Node(tii - 1, tjj - 1);
+                    leftNode.path.insert(0, tmp.path.toString());
+                    leftNode.path.insert(0, chars1[tii - 1]);
+                    thestatck.push(leftNode);
+                } else if (chess[tii][tjj - 1] > chess[tii - 1][tjj]) {
+                    Node leftNode = new Node(tii, tjj - 1);
+                    leftNode.path.insert(0, tmp.path.toString());
+                    thestatck.push(leftNode);
+                } else {
+                    Node leftNode = new Node(tii - 1, tjj);
+                    leftNode.path.insert(0, tmp.path.toString());
+                    thestatck.push(leftNode);
+                }
 
-            String str = tmp.path.toString();
-            if(chars1[r-1] == chars2[c-1])
-            {
-                Node newNode = new Node(r-1,c-1);
-                newNode.path.append(chars1[r-1]);
-                newNode.path.append(str);
-                thestatck.push(newNode);
-            }//else if(chess[r-1][c]==chess[]){}
-
+            }
         }
 
     }
