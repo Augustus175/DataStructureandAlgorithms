@@ -11,7 +11,6 @@ public class PermutationApp02 {
         String str = sc.next();
         char[] strchar = str.toCharArray();
         Permutation(strchar, str.length(), 0);
-
     }
 
     public static void Permutation(char[] a, int size, int start) {
@@ -30,7 +29,6 @@ public class PermutationApp02 {
         }
 
     }
-
     public static void swap(char[] a, int i, int j) {
         char tmp = a[i];
         a[i] = a[j];
