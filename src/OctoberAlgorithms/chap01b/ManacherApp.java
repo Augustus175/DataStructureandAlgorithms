@@ -42,8 +42,14 @@ public class ManacherApp {
 //            for ( extendstr[i+p[i]]==extendstr[i-p[i]]; p[i]++) {
 //
 //            }
-            while (extendstr[i + p[i]] == extendstr[i - p[i]]) {
-                p[i]++;
+            boolean flag = true;
+            while (flag) {
+                if (extendstr[i + p[i]] == extendstr[i - p[i]])
+                {
+                    p[i]++;
+                }else{
+                    flag = false;
+                }
             }
             if (max < i + p[i]) {
                 max = i + p[i];
