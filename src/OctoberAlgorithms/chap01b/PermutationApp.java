@@ -1,10 +1,8 @@
 package OctoberAlgorithms.chap01b;
 
 import java.util.Scanner;
-
 /**
  * Created by zhangzhibo on 2017/5/8.
- * refactor
  */
 public class PermutationApp {
     public static void main(String[] args) {
@@ -14,7 +12,6 @@ public class PermutationApp {
         int a = 0;//just test
         Permutation(strchar, str.length(), 0);
     }
-
     public static void Permutation(char[] a, int size, int start) {
         if (start == size - 1) {
             String str = new String(a);
