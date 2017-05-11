@@ -8,26 +8,20 @@ import java.util.Scanner;
  */
 public class Birthday {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int a = (int)Math.pow(365,n);
-        BigInteger bignum = new BigInteger("365");
-        BigInteger bign = new BigInteger(String.valueOf(n));
-        BigInteger b = (factorial(bignum).divide(factorial(bign)));
-        System.out.println(a);
-        System.out.println(factorial(bignum));
-        System.out.println(factorial(bign));
+//        Scanner sc = new Scanner(System.in);
+//        int n = sc.nextInt();
+//        int a = (int)Math.pow(365,n);
+        int b = factorial(10);
         System.out.println(b);
-//        System.out.println(b/a);
 
     }
-    public static BigInteger factorial(BigInteger n)
+    public static int  factorial(int n)
     {
-        if (n.equals(0))
+        if (n==0)
         {
-            return BigInteger.ONE;
+            return 1;
         }else{
-           return  n.multiply(factorial(n.subtract(BigInteger.ONE)));
+           return  n*(factorial(n-1));
         }
     }
 }
