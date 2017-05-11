@@ -6,7 +6,7 @@ package OctoberAlgorithms.chap01b;
 public class ManacherApp {
     public static void main(String[] args) {
 //        String str = "abcdefg";
-        String str = "abc";
+        String str = "12212321";
         char[] extendstr = new char[2 * str.length() + 2];
         int j = 0;
         extendstr[0] = '$';
@@ -18,9 +18,9 @@ public class ManacherApp {
                 j++;
             }
         }
-        for (char c : extendstr) {
-            System.out.print(c);
-        }
+//        for (char c : extendstr) {
+//            System.out.print(c);
+//        }
         int[] p = new int[extendstr.length];
         Manacher(extendstr, p);
         for (int k : p) {
@@ -30,25 +30,23 @@ public class ManacherApp {
 
     public static void Manacher(char[] extendstr, int[] p) {
         int size = extendstr.length;
-        p[0] = 0;
+        p[0] = 1;
         int id = 0;
         int max = 1;
-        for (int i = 0; i < size; i++) {
+        for (int i = 1; i < size; i++) {
             if (max > 1) {
-                p[i] = Math.min(p[2 * id - 1], max - 1);
+                p[i] = Math.min(p[2 * id - i], max - i);
             } else {
                 p[i] = 1;
             }
-//            for ( extendstr[i+p[i]]==extendstr[i-p[i]]; p[i]++) {
-//
-//            }
-            boolean flag = true;
-            while (flag) {
+
+            while(i+p[i]<size)
+            {
                 if (extendstr[i + p[i]] == extendstr[i - p[i]])
                 {
                     p[i]++;
                 }else{
-                    flag = false;
+                    break;
                 }
             }
             if (max < i + p[i]) {
