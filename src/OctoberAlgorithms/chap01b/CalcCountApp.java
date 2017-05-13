@@ -11,7 +11,7 @@ public class CalcCountApp {
     public static int CalcCount(int n) {
         int nNonRepeat = 3;
         int nRepeat = 0;
-        for (int i = 2; i <n ; i++) {
+        for (int i = 2; i <=n ; i++) {
             int t = nNonRepeat;
             nNonRepeat = 2*nNonRepeat+2*nRepeat;
             nRepeat = t;
