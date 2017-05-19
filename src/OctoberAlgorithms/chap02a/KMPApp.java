@@ -11,6 +11,19 @@ public class KMPApp {
         char[] testchar = test.toCharArray();
         int answer = KMP(testchar,patern);
         System.out.println(answer);
+        int[] next1 = new int[patern.length];
+        int[] next2 = new int[patern.length];
+        GetNext(patern,next1);
+        GetNext2(patern,next2);
+        for (int m :
+                next1) {
+            System.out.print(m+" ");
+        }
+        System.out.println();
+        for (int n :
+                next2) {
+            System.out.print(n+" ");
+        }
     }
 
     public static void GetNext(char[] p, int[] next) {
@@ -22,7 +35,30 @@ public class KMPApp {
             if (k == -1 || p[k] == p[j]) {
                 j++;
                 k++;
+                System.out.println(k+" "+ j);
                 next[j] = k;
+            } else {
+                k = next[k];
+            }
+
+        }
+
+    }
+    public static void GetNext2(char[] p, int[] next) {
+        int nLen = p.length;
+        next[0] = -1;
+        int k = -1;
+        int j = 0;
+        while (j < nLen - 1) {
+            if (k == -1 || p[k] == p[j]) {
+                j++;
+                k++;
+                if(p[j]==p[k])
+                {
+                    next[j]=next[k];
+                }else{
+                    next[j] = k;
+                }
             } else {
                 k = next[k];
             }
