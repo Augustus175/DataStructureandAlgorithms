@@ -16,21 +16,20 @@ public class EratosthenesApp {
     }
 
     public static void Eratosthene(boolean[] a) {
-        int p= 2;
-        int j = p*p;
-        while(j<a.length)
-        {
-            while (j<a.length)
-            {
-                a[j] =true;
-                j+=p;
+        a[0] = true;
+        a[1] = true;
+        int p = 2;
+        int j = p * p;
+        while (j < a.length) {
+            while (j < a.length) {
+                a[j] = true;
+                j += p;
             }
             p++;
-            while (a[p])
-            {
+            while (a[p]) {
                 p++;
             }
-            j = p*p;
+            j = p * p;
         }
     }
 }
