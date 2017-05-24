@@ -5,19 +5,21 @@ package OctoberAlgorithms.chap02a;
  */
 public class PolyaApp {
     public static void main(String[] args) {
-        int n = 7;
-        int num = (int) Math.pow(2, n );
+        int n = 8;
+        int num = (int) Math.pow(2, n);
         boolean[] flag = new boolean[num];
         for (int i = 0; i < num; i++) {
             int t = i;
-            for (int j = 0; j <  n; j++) {
-                t = leftRoll(t, n);
-                if (t > i) {
-                    flag[t] = true;
-                } else if (t < i) {
-                    flag[i] = true;
-                } else {
-                    break;
+            if (!flag[i]) {
+                for (int j = 0; j < n; j++) {
+                    t = leftRoll(t, n);
+                    if (t > i) {
+                        flag[t] = true;
+                    } else if (t < i) {
+                        flag[i] = true;
+                    } else {
+                        break;
+                    }
                 }
             }
         }
@@ -25,7 +27,7 @@ public class PolyaApp {
         for (int i = 0; i < num; i++) {
             if (!flag[i]) {
                 count++;
-                System.out.println(i);
+//                System.out.println(i);
             }
         }
         System.out.println(count);
