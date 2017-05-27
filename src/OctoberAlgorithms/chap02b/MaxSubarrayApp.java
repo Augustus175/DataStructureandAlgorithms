@@ -5,7 +5,7 @@ package OctoberAlgorithms.chap02b;
  */
 public class MaxSubarrayApp {
     public static void main(String[] args) {
-        int[] a = {1, -2, 3, 10, -4, 7, 2, -5};
+        int[] a = {1, -2, -3, -10, -4, -7, -2, -5};
         int result = MaxSubarray(a);
         System.out.println(result);
     }
@@ -13,7 +13,7 @@ public class MaxSubarrayApp {
     public static int MaxSubarray(int[] a) {
         int sum = a[0];
         int result = sum;
-        for (int i = 0; i < a.length; i++) {
+        for (int i = 1; i < a.length; i++) {
             if (sum > 0) {
                 sum = sum + a[i];
             } else {
