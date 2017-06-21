@@ -23,6 +23,8 @@ public class FindMininRollApp {
             }else if (a[mid]>a[right])
             {
                 left = mid+1;
+            }else{
+                right = right-1;
             }
         }
         return a[left];
