@@ -5,7 +5,9 @@ package OctoberAlgorithms.chap02b;
  */
 public class ModeApp {
     public static void main(String[] args) {
-        int[] a = {3, 1, 1, 1, 2, 1, 5, 5, 1, 3, 2,};
+//        int[] a = {3, 1, 1, 1, 2, 1, 5, 5, 1, 3, 2,};
+//        int[] a = {1,2,3,2,4,2,5,2,3};
+        int[] a = {8, 8, 1, 1, 1, 8, 1, 1, 6, 1, 8};
         int m = mode(a);
         System.out.println(m);
     }
@@ -16,12 +18,11 @@ public class ModeApp {
         for (int i = 0; i < a.length; i++) {
             if (count == 0) {
                 m = a[i];
-                count =1;
-            }
-            if (m == a[i]) {
-                count++;
-            } else {
+                count = 1;
+            } else if (m != a[i]) {
                 count--;
+            } else {
+                count++;
             }
         }
         return m;
