@@ -1,31 +1,16 @@
 package NowCoder.offer;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-
 /**
- * Created by zhangzhibo on 2017/7/2.
+ * Created by zhangzhibo on 2017/6/30.
  */
 public class No34 {
-    public String PrintMinNumber(int [] numbers) {
-        ArrayList<String> list = new ArrayList<>();
-        for(int i=0;i<numbers.length;i++){
-            list.add(Integer.toString(numbers[i]));
+    public int NumberOf1Between1AndN_Solution(int n) {
+        int count = 0;
+        for (int i = 1; i <= n; i *= 10) {
+            int a = n / i;
+            int b = n % i;
+            count = count + ((a + 8) / 10) * i + (a % 10 == 1 ? 1 : 0) * (b + 1);
         }
-        Collections.sort(list, new Comparator<String>(){
-
-            public  int compare(String str1,String str2){
-                String a = str1+str2;
-                String b = str2+str1;
-                return a.compareTo(b);
-            }
-        });
-        StringBuilder sb = new StringBuilder();
-        for(String s:list){
-            sb.append(s);
-        }
-        return sb.toString();
-
+        return count;
     }
 }
