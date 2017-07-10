@@ -6,6 +6,13 @@ import java.util.ArrayList;
  * Created by zhangzhibo on 17-6-27.
  */
 public class No30 {
+    public static void main(String[] args) {
+        No30 t = new No30();
+        ArrayList<String> re = t.Permutation("abcd");
+        for (int i = 0; i < re.size(); i++) {
+            System.out.println(re.get(i));
+        }
+    }
     public ArrayList<String> result = new ArrayList<String>();
     public ArrayList<String> Permutation(String str) {
         if(str.length()==0){
