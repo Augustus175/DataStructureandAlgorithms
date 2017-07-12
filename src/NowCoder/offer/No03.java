@@ -1,7 +1,7 @@
 package NowCoder.offer;
 
 /**
- * Created by zhangzhibo on 17-6-18.
+ * Created by zhangzhibo on 17-6-19.
  */
 public class No03 {
     public static void main(String[] args) {
@@ -10,42 +10,23 @@ public class No03 {
     }
 
     public static boolean Find(int target, int[][] array) {
-        if (array.length == 0) {
-            return false;
-        }
-        int intres = 0;
-        int low = 0;
-        int up = array[0].length;
-        int mid = 0;
-        while (true) {
-            mid = (up + low) / 2;
-
-            if (target == array[0][mid]) {
-                intres = mid;
-                break;
-            } else if (up - low == 1) {
-                intres = low;
-                break;
-            } else if (target > array[0][mid]) {
-                low = mid;
-            } else {
-                up = mid;
-            }
-        } low = 0;
-        up = array.length;
-        while (true) {
-            mid = (low + up) / 2;
-            if (target == array[mid][intres]) {
+        int rows = array.length;
+        int cols = array[0].length;
+        int i =0;
+        int j = cols-1;
+        while(i<=rows-1&&j>=0)
+        {
+            if (target == array[i][j])
+            {
                 return true;
-            } else if (up < low) {
-                return false;
-            } else if (target > array[mid][intres]) {
-                up = mid + 1;
-            } else {
-                low = mid - 1;
+            }else if (target<array[i][j])
+            {
+               j--;
+            }else{
+                i++;
             }
-
         }
+        return false;
+
     }
 }
-
