@@ -5,9 +5,12 @@ package NowCoder.offer;
  */
 public class No09 {
     public static void main(String[] args) {
+        System.out.println(Fibonacci(3));
         System.out.println(Fibonacci2(10));
-        System.out.println(Fibonacci(10));
         System.out.println(FibonacciTail(11, 0, 1));
+        double t1 = 1.2;
+        double t2 = 1.2;
+        System.out.println(t1==t2);
     }
 
     //1650ms
@@ -44,10 +47,10 @@ public class No09 {
         int a = 0;
         int b = 1;
         int c = 0;
-        for (int i = 1; i <= n; i++) {
-            c = b;
-            b = a + b;
-            a = c;
+        for (int i = 2; i <= n; i++) {
+            c = a+b;
+            a = b;
+            b = c;
         }
         return c;
     }

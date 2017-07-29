@@ -52,5 +52,14 @@ public class No05 {
         }
         return result;
     }
+// the recursion
+    public ArrayList<Integer> result = new ArrayList<>();
+    public void reprintnode(ListNode listNode){
+        if (listNode==null){
+            return;
+        }
+        reprintnode(listNode.next);
+        result.add(listNode.val);
+    }
 }
 
