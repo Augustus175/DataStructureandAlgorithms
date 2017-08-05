@@ -1,42 +1,54 @@
 package com.dsa.mydsa.NowCoder.offer;
 
+import java.util.ArrayList;
+
 /**
  * Created by zhangzhibo on 17-7-10.
  */
 public class inttext {
     public static void main(String[] args) {
-        System.out.println(Integer.MAX_VALUE + 1);
-        System.out.println(0x80000000L + 1);
-        Integer i1 = 100;
-        Integer i2 = 100;
+    String str = "abcd";
+    char[] chars = str.toCharArray();
+    docore(chars,0);
+        for (String s :
+                result) {
+            System.out.println(s);
+        }
 
-        Integer i3 = 1000;
-        Integer i4 = 1000;
-        System.out.println(i1 == i2);
-        System.out.println(i3 == i4);
-        String str = "qqq";
-        str.length();
-        System.out.println(turnDigist("1234".toCharArray())+2);
-        int t =3;
-        System.out.println(-t);
-        System.out.println(getnum(12345));
     }
 
-    public static int turnDigist(char[] strch) {
-        int num = 0;
-        for (int i = 0; i < strch.length; i++) {
-            num = num * 10 + (strch[i] - '0');
+    public static ArrayList<String> result = new ArrayList<>();
+
+    public static void docore(char[] a, int start) {
+        if (start >= a.length) {
+            result.add(new String(a));
+            return;
         }
-        return num;
-    }
-    public static int getnum(int num){
-        int result = 0;
-        while(num!=0){
-            result += num%10;
-            num = num/10;
+        for (int i = start; i < a.length; i++) {
+            if (isDuplation(a, start, i)) {
+                continue;
+            }
+            swap(a, start, i);
+            docore(a, start + 1);
+            swap(a, start, i);
         }
-        return result;
     }
+
+    public static void swap(char[] a, int i, int j) {
+        char c = a[i];
+        a[i] = a[j];
+        a[j] = c;
+    }
+
+    public static boolean isDuplation(char[] a, int start, int end) {
+        for (int i = start; i < end; i++) {
+            if (a[start] == a[end]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
 
 

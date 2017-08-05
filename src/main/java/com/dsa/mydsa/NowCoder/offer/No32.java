@@ -25,9 +25,9 @@ public class No32 {
         int right = input.length-1;
         ArrayList<Integer> result = new ArrayList<Integer>(k);
         int index = partition(input,left,right,input[right]);
-        while(index-1!=k){
+        while(index!=k-1){
 
-            if(index-1>k){
+            if(index>k-1){
                 right = index-1;
                 index = partition(input,left,right,input[right]);
             }else{
@@ -55,6 +55,7 @@ public class No32 {
             }
         }
         swap(a,leftptr,right);
+        System.out.println(leftptr);
         return leftptr;
     }
     public static void swap(int[] a,int l,int r){

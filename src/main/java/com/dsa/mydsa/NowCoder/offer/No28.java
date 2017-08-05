@@ -27,7 +27,7 @@ public class No28 {
             System.out.println(current.label);
             current= current.next;
         }
-        RandomListNode newHead =Clone(head);
+        RandomListNode newHead =Clone2(head);
         while (newHead!=null){
             System.out.println(newHead.label);
             newHead= newHead.next;
@@ -75,5 +75,42 @@ public class No28 {
         }
 
         return result;
+    }
+    public static RandomListNode Clone2(RandomListNode pHead)
+    {
+        if(pHead==null){
+            return null;
+        }
+        RandomListNode current = pHead;
+        while(current!=null){
+            RandomListNode newNode = new RandomListNode(current.label);
+            newNode.next = current.next;
+            current.next = newNode;
+            current = newNode.next;
+        }
+        current = pHead;
+        while(current!=null){
+            if(current.random!=null){
+                current.next.random = current.random.next;
+            }else{
+                current.next.random = null;
+            }
+
+            current = current.next.next;
+        }
+        current = pHead;
+        RandomListNode newhead= current.next;
+        RandomListNode current2= current.next;
+        while(current!=null){
+            current.next = current.next.next;
+            if(current2.next==null){
+                current2.next = null;
+            }else{
+                current2.next = current2.next.next;
+            }
+            current = current.next;
+            current2 = current2.next;
+        }
+        return newhead;
     }
 }

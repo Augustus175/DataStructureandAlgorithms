@@ -27,6 +27,8 @@ public class No59 {
             }
 
         }
-        return result.next;
+        pHead = result.next;
+        result.next = null;
+        return pHead;
     }
 }

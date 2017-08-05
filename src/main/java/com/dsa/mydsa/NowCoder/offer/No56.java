@@ -54,7 +54,7 @@ public class No56 {
             return false;
         }
         index = scanNum(str, index);
-        return index == str.length ? true : false;
+        return index == str.length;
     }
 
     public static int scanNum(char[] str, int index) {

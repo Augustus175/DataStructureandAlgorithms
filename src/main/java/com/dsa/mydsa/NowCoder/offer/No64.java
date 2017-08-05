@@ -70,6 +70,5 @@ public class No64 {
             newnode.right = reDeserialize(strs);
         }
         return newnode;
-
     }
 }

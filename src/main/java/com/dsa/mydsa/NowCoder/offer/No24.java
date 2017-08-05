@@ -27,4 +27,23 @@ public class No24 {
         }
         return stack.empty();
     }
+    public static boolean IsPopOrder2(int [] pushA,int [] popA) {
+        if(pushA==null||popA==null||pushA.length==0||popA.length==0){
+            return false;
+        }
+        int j = 0;
+        Stack<Integer> stack = new Stack<Integer>();
+        for(int i = 0;i<popA.length;i++){
+            while(stack.isEmpty()||stack.peek()!=popA[i]){
+                if(j==pushA.length){
+                    return false;
+                }
+                stack.push(pushA[j]);
+                j++;
+            }
+            stack.pop();
+        }
+        return true;
+
+    }
 }

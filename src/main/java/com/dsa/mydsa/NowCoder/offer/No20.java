@@ -1,10 +1,13 @@
 package com.dsa.mydsa.NowCoder.offer;
 
+import java.util.Stack;
+
 /**
  * Created by zhangzhibo on 17-6-24.
  */
 public class No20 {
     public static void main(String[] args) {
+        Stack<Integer>stack = new Stack<>();
 
     }
 

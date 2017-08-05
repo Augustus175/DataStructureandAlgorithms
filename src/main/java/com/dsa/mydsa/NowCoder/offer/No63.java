@@ -3,6 +3,7 @@ package com.dsa.mydsa.NowCoder.offer;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Created by zhangzhibo on 17-7-9.
@@ -59,6 +60,49 @@ public class No63 {
                 list.clear();
                 toBeprint = nextnodes;
                 nextnodes = 0;
+            }
+        }
+        return result;
+    }
+    public ArrayList<ArrayList<Integer> > Print2(TreeNode pRoot) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        if(pRoot==null){
+            return result;
+        }
+        Stack<TreeNode> stack1 = new Stack<TreeNode>();
+        Stack<TreeNode> stack2 = new Stack<TreeNode>();
+        stack1.push(pRoot);
+        while(!stack1.isEmpty()||!stack2.isEmpty()){
+
+            if(!stack1.isEmpty()){
+                ArrayList<Integer> re = new ArrayList<>();
+                while(!stack1.isEmpty()){
+                    TreeNode tmp = stack1.pop();
+                    re.add(tmp.val);
+                    if(tmp.left!=null){
+                        stack2.push(tmp.left);
+                    }
+                    if(tmp.right!=null){
+                        stack2.push(tmp.right);
+                    }
+
+                }
+                result.add(re);
+            }
+            if(!stack2.isEmpty()){
+                ArrayList<Integer> re = new ArrayList<>();
+                while(!stack2.isEmpty()){
+                    TreeNode tmp = stack2.pop();
+                    re.add(tmp.val);
+                    if(tmp.right!=null){
+                        stack1.push(tmp.right);
+                    }
+                    if(tmp.left!=null){
+                        stack1.push(tmp.left);
+                    }
+
+                }
+                result.add(re);
             }
         }
         return result;
