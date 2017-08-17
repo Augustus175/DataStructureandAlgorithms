@@ -6,7 +6,7 @@ import java.util.Collections;
 /**
  * Created by zhangzhibo on 17-7-10.
  */
-public class No30another {
+public class No30_offer {
     public ArrayList<String> Permutation(String str) {
         ArrayList<String> res = new ArrayList<>();
 

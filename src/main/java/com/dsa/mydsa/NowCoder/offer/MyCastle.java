@@ -14,7 +14,7 @@ public class MyCastle {
         int size = sc.nextInt();
         sc = new Scanner(System.in);
         ArrayList<Point> points = new ArrayList<>(size);
-        Map<Integer,Point> map = new HashMap<>();
+        Map<Integer, Point> map = new HashMap<>();
         int[] index = new int[size];
         for (int i = 0; i < size; i++) {
             double x = Double.parseDouble(sc.next());
@@ -22,7 +22,7 @@ public class MyCastle {
             Point point = new Point(x, y);
             index[i] = i;
             points.add(point);
-            map.put(i,point);
+            map.put(i, point);
         }
 //        for (int i = 0; i < size; i++) {
 //            System.out.println(points.get(i));
@@ -46,11 +46,13 @@ public class MyCastle {
         result = new Point(x, y);
         return result;
     }
-public static int castle(int[] index,Map<Integer,Point> map){
+
+    public static int castle(int[] index, Map<Integer, Point> map) {
         int result = 0;
         int size = map.size();
+        return 0;
+    }
 
-}
     public static int castle(ArrayList<Point> points) {
         int result = 0;
         int vl = points.size();
@@ -74,22 +76,24 @@ public static int castle(int[] index,Map<Integer,Point> map){
                     } else {
                         if (p.x > 0) {
                             count1++;
-                            angle1 = Math.max(angle1,p.y);
+                            angle1 = Math.max(angle1, p.y);
                         } else if (0 > p.x) {
                             count2++;
-                            angle2 = Math.max(angle2,p.y);
+                            angle2 = Math.max(angle2, p.y);
                         }
                     }
                 }
                 if (Math.acos(-1) < angle1 + angle2) {
-                    count1 = count1 < count2 ? (count2 + count0 ): (count1 + count0);
-                    result = Math.max(result,count1);
+                    count1 = count1 < count2 ? (count2 + count0) : (count1 + count0);
+                    result = Math.max(result, count1);
                 }
             }
         }
         return result;
     }
-    public  static ArrayList<String> reslt = new ArrayList<>();
+
+    public static ArrayList<String> reslt = new ArrayList<>();
+
     public static void combine(int i, String str, int[] num, int n) {
         if (n == 0) {
 //            System.out.println(str);

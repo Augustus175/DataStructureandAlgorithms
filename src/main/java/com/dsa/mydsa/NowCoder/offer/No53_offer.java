@@ -3,7 +3,7 @@ package com.dsa.mydsa.NowCoder.offer;
 /**
  * Created by zhangzhibo on 17-7-12.
  */
-public class No53another {
+public class No53_offer {
     public static void main(String[] args) {
         int[] a = {1, 3, 5, 4, 8, 2, 6, 7};
         System.out.println(dulpicate(a,a.length));
