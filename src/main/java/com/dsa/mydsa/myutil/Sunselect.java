@@ -1,7 +1,6 @@
 package com.dsa.mydsa.myutil;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -9,22 +8,22 @@ import java.util.Random;
  */
 public class Sunselect {
     public static void main(String[] args) {
-        Random ran = new Random(10);
+        Random ran = new Random(23);
         int[] a = new int[6];
         for (int i = 0; i < a.length; i++) {
             a[i] = ran.nextInt(10);
         }
         ArrayList<String> result = new ArrayList<>();
-        result = select(a, 3,result);
+        result = select(a, 3, result);
         for (String s :
                 result) {
             System.out.println(s);
         }
     }
 
-    private static ArrayList<String> select(int[] a, int k,ArrayList<String> result) {
+    private static ArrayList<String> select(int[] a, int k, ArrayList<String> result) {
         int[] tmp = new int[k];
-        return subselect(a, 0, 1, tmp, k,result);
+        return subselect(a, 0, 1, tmp, k, result);
     }
 
     private static ArrayList<String> subselect(int[] a, int head, int index, int[] r, int k, ArrayList<String> result) {
