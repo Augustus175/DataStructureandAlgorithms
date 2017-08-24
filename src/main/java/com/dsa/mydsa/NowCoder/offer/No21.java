@@ -8,13 +8,14 @@ public class No21 {
         if (root == null) {
             return;
         }
+        if (root.left == null && root.right == null) {
+            return;
+        }
         TreeNode tmpNode = root.left;
         root.left = root.right;
         root.right = tmpNode;
 
         Mirror(root.left);
-
-
         Mirror(root.right);
 
     }

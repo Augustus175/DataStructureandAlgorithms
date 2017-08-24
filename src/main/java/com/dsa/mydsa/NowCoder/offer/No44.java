@@ -4,6 +4,13 @@ import java.util.ArrayList;
  * Created by Gavin.Stevenson on 2017/7/4.
  */
 public class No44 {
+    /**
+     *
+     * @param array
+     * @param sum
+     * @return
+     * 算法的基本思想，就是在两头两个指针相加，和大的话向小的地方移动，和小话向大的方向一定
+     */
     public ArrayList<Integer> FindNumbersWithSum(int[] array, int sum) {
         ArrayList<Integer> re = new ArrayList<>();
         if (array == null || array.length == 0) {

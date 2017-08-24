@@ -27,6 +27,15 @@ public class No24 {
         }
         return stack.empty();
     }
+
+    /**
+     *@param pushA 给定的压入序列
+     * @param popA 给定的弹出序列
+     * @return
+     * @j 压入序列的索引值
+     * 思路：遍历弹出序列美若当前的栈顶元素不等于弹出序列当前的值说明他不是当前弹出值可能要把要压入的值继续压到堆栈中
+     * 如果此时j已经是数组边界了，没有可以再压的值了，那么说明不是弹出序列
+     */
     public static boolean IsPopOrder2(int [] pushA,int [] popA) {
         if(pushA==null||popA==null||pushA.length==0||popA.length==0){
             return false;
@@ -44,6 +53,5 @@ public class No24 {
             stack.pop();
         }
         return true;
-
     }
 }

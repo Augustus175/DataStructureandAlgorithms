@@ -29,11 +29,13 @@ public class No40 {
         }
         return result;
     }
+//    本质就是二分查找但是比二分查找有一些区别
     public static int findFirst(int[] a, int start, int end, int key) {
         int mid;
         while (true) {
             mid = (start + end) >> 1;
             if (a[mid] == key) {
+//                区别在这里，遇到相等的end视情况而定，在findLast一样
                 if (mid == 0 || mid > 0 && a[mid - 1] != key) {
                     return mid;
                 } else {

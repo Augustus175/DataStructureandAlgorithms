@@ -6,19 +6,17 @@ import java.util.Stack;
  * Created by zhangzhibo on 17-6-25.
  */
 public class No23 {
-
-}
-class MinStack{
     Stack<Integer> stack1 = new Stack();
     Stack<Integer> stack2 = new Stack();
+
     public void push(int node) {
         stack1.push(node);
-        if(stack2.empty()){
+        if (stack2.empty()) {
             stack2.push(node);
-        }else{
-            if(node>this.min()){
+        } else {
+            if (node > this.min()) {
                 stack2.push(this.min());
-            }else{
+            } else {
                 stack2.push(node);
             }
         }

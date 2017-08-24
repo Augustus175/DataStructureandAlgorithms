@@ -1,6 +1,7 @@
 package com.dsa.mydsa.NowCoder.offer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by zhangzhibo on 17-6-27.
@@ -8,7 +9,8 @@ import java.util.ArrayList;
 public class No30 {
     public static void main(String[] args) {
         No30 t = new No30();
-        ArrayList<String> re = t.Permutation("abcd");
+        ArrayList<String> re = t.Permutation("abc");
+        Collections.sort(re);
         for (int i = 0; i < re.size(); i++) {
             System.out.println(re.get(i));
         }
@@ -20,6 +22,7 @@ public class No30 {
         }
         char[] c = str.toCharArray();
         dopermu(c,0,c.length);
+        Collections.sort(result);
         return result;
     }
     public void dopermu(char[] c,int start, int size){

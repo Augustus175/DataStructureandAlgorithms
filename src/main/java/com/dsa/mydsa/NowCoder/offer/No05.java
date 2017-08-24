@@ -44,16 +44,18 @@ public class No05 {
             tmp.add(current.val);
             current = current.next;
         }
-        for (int i = tmp.size()-1; i >= 0; i--) {
+        for (int i = tmp.size() - 1; i >= 0; i--) {
             result.add(tmp.get(i));
 
         }
         return result;
     }
-// the recursion
+
+    // the recursion
     public ArrayList<Integer> result = new ArrayList<>();
-    public void reprintnode(ListNode listNode){
-        if (listNode==null){
+
+    public void reprintnode(ListNode listNode) {
+        if (listNode == null) {
             return;
         }
         reprintnode(listNode.next);

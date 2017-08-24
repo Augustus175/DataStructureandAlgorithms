@@ -5,21 +5,20 @@ package com.dsa.mydsa.NowCoder.offer;
  */
 public class No18 {
     public ListNode Merge(ListNode list1, ListNode list2) {
-        ListNode current1 = list1;
-        ListNode next1 = current1.next;
-
-        ListNode current2 = list2;
-        ListNode next2 = current2.next;
-        while ((next1 != null) && (next2 != null)) {
-            if ((current1.val <= current2.val) && (next1.val >= current2.val)) {
-                current1.next = current2;
-                current2.next = next1;
-                current1 = current2;
-                next1 = current1.next;
-                current2 = next2;
-                next2 = current2.next;
-            }
+        if (list1 == null) {
+            return list2;
         }
-        return null;
+        if (list2 == null) {
+            return list1;
+        }
+        ListNode pHead = null;
+        if (list1.val < list2.val) {
+            pHead = list1;
+            pHead.next = Merge(list1.next, list2);
+        } else {
+            pHead = list2;
+            pHead.next = Merge(list1, list2.next);
+        }
+        return pHead;
     }
 }

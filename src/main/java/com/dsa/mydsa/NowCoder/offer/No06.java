@@ -36,11 +36,22 @@ public class No06 {
         return root;
     }
 
+    /**
+     *
+     * @param pre 前序数组
+     * @param startPre 前序数组的起始位置
+     * @param endPre 前序数组的终止位置
+     * @param in 中序数组
+     * @param startIn 中序数组的起始位置
+     * @param endIn 中序数组的终止位置
+     * @return 每次递归返回的都是头节点的指针，头节点并没有实际作用只是保持不丢
+     */
     public static TreeNode reConstructBinaryTree(int[] pre, int startPre, int endPre, int[] in, int startIn, int endIn) {
         if (startPre > endPre || startIn > endIn) {
             return null;
         }
         TreeNode root = new TreeNode(pre[startPre]);
+//        在中序遍历中寻找跟节点，并以此为依据左右划分，左右分别进行递归
         for (int i = startIn; i <= endIn; i++) {
             if (pre[startPre] == in[i]) {
                 root.left = reConstructBinaryTree(pre, startPre + 1, startPre + i - startIn, in, startIn, i - 1);
@@ -49,9 +60,12 @@ public class No06 {
 
         }
         return root;
-
     }
 
+    /**
+     *  后续遍历
+     * @param root
+     */
     public static void posSearch(TreeNode root) {
         if (root != null) {
             posSearch(root.left);
@@ -60,7 +74,6 @@ public class No06 {
         }
 
     }
-
     public static void preSearch1(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         while (root != null || !stack.isEmpty()) {
