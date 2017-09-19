@@ -14,7 +14,7 @@ public class Sunselect {
             a[i] = ran.nextInt(10);
         }
         ArrayList<String> result = new ArrayList<>();
-        result = select(a, 3, result);
+        result = select(a, 2, result);
         for (String s :
                 result) {
             System.out.println(s);
