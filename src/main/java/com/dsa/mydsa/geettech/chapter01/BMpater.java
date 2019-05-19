@@ -1,15 +1,12 @@
 package com.dsa.mydsa.geettech.chapter01;
 
-public class LMpater {
+public class BMpater {
     public int pattern(String text, String modle) {
         int i = 0;
-        while (i < text.length() - modle.length()) {
-            int k = i + modle.length();
+        while (i <= text.length() - modle.length()) {
+            int k = i + modle.length() -1;
             int j;
-            System.out.println(modle.length());
-            for (j = modle.length(); j >= 0 && text.indexOf(k--) == modle.indexOf(j); j--){
-                System.out.println("----");
-            } ;
+            for (j = modle.length()-1; j >= 0 && text.charAt(k--) == modle.charAt(j); j--);
             if (j < 0) {
                 return i;
             } else {
@@ -24,8 +21,8 @@ public class LMpater {
     }
 
     public static void main(String[] args) {
-        LMpater lMpater = new LMpater();
-        int re = lMpater.pattern("string", "in");
+        BMpater lMpater = new BMpater();
+        int re = lMpater.pattern("string", "og");
         System.out.println(re);
     }
 }
