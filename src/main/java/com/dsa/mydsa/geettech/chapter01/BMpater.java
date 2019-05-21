@@ -5,10 +5,14 @@ import java.util.Map;
 
 public class BMpater {
     private Map<Character, Integer> charMap = new HashMap<>();
+    private int[] suffix;
+    private int[] mGs;
 
     public int pattern(String text, String model) {
         int i = 0;
         fillMap(model);
+        suffix = new int[model.length()];
+        mGs = new int[model.length()];
         while (i <= text.length() - model.length()) {
             int k = i + model.length() - 1;
             int j;
@@ -16,7 +20,7 @@ public class BMpater {
             if (j < 0) {
                 return i;
             } else {
-                i += match(j, text.charAt(k+1));
+                i += match(j, text.charAt(k + 1));
             }
         }
         return -1;
