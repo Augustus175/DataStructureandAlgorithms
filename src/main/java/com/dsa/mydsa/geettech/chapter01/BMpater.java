@@ -6,6 +6,7 @@ import java.util.Map;
 public class BMpater {
     private Map<Character, Integer> charMap = new HashMap<>();
     private int[] suffix;
+    private boolean[] prefix;
     private int[] mGs;
 
     public int pattern(String text, String model) {
@@ -24,6 +25,29 @@ public class BMpater {
             }
         }
         return -1;
+    }
+
+    private void generateGs(String model) {
+        int m = model.length();
+        this.suffix = new int[m];
+        this.prefix = new boolean[m];
+        for (int i = 0; i < m; i++) {
+            suffix[i] = -1;
+            prefix[i] = false;
+        }
+        for (int i = 0; i < m - 1; i++) {
+            int j = i;
+            int k = 0;
+            while (j >= 0 && model.charAt(j) == model.charAt(m - 1 - k)) {
+                j--;
+                k++;
+                suffix[k] = j + 1;
+            }
+            if (j == -1) {
+                prefix[i] = true;
+            }
+
+        }
     }
 
     private int match(int index, char badchar) {
