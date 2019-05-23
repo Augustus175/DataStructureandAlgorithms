@@ -52,6 +52,9 @@ public class BMpater {
 
     private int match(int index, char badchar) {
         int step = badChar(index, badchar);
+        if (suffix[index] > step) {
+            return suffix[index];
+        }
         if (step > 0) {
             return step;
         }
