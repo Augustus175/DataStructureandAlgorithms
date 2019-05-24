@@ -27,6 +27,14 @@ public class BMpater {
         return -1;
     }
 
+    private int moveByGs(int j, String model) {
+        int m = model.length();
+        if (mGs[j] != -1) {
+
+        }
+        return m;
+    }
+
     private void generateGs(String model) {
         int m = model.length();
         this.suffix = new int[m];
