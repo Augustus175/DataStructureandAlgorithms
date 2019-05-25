@@ -29,8 +29,14 @@ public class BMpater {
 
     private int moveByGs(int j, String model) {
         int m = model.length();
+        int k = m - 1 - j;
         if (mGs[j] != -1) {
-
+            return j - suffix[k] + 1;
+        }
+        for (int i = j + 2; i <= m - 1; i++) {
+            if (prefix[m - i]) {
+                return i;
+            }
         }
         return m;
     }
