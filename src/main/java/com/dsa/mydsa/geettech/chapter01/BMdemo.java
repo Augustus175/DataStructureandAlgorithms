@@ -21,6 +21,24 @@ public class BMdemo {
         return -1;
     }
 
+    private void BG(String pattern) {
+        int m = pattern.length();
+        int[] BG = new int[m];
+        boolean[] prefix = new boolean[m];
+        for (int i = 0; i < m - 1; i++) {
+            int k = 0;
+            int j = i;
+            while (j >= 0 && pattern.charAt(j) == pattern.charAt(m - k)) {
+                --j;
+                ++k;
+                BG[k] = j + 1;
+            }
+            if (j == -1) {
+                prefix[k] = true;
+            }
+        }
+    }
+
     private static int step() {
         return 1;
     }
