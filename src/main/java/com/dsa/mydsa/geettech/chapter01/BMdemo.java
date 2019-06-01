@@ -21,6 +21,10 @@ public class BMdemo {
         return -1;
     }
 
+    private int Better() {
+        return -1;
+    }
+
     private void BG(String pattern) {
         int m = pattern.length();
         int[] BG = new int[m];
