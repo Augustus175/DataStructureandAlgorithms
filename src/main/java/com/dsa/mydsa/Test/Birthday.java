@@ -1,6 +1,8 @@
 package com.dsa.mydsa.Test;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -8,20 +10,9 @@ import java.util.Scanner;
  */
 public class Birthday {
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        int a = (int)Math.pow(365,n);
-        int b = factorial(10);
-        System.out.println(b);
+        List<Integer> list = new ArrayList<>();
+        List<Integer> tmpList = new ArrayList<>();
 
-    }
-    public static int  factorial(int n)
-    {
-        if (n==0)
-        {
-            return 1;
-        }else{
-           return  n*(factorial(n-1));
-        }
+        System. arraycopy( list, 1, tmpList, 0, 0);
     }
 }
