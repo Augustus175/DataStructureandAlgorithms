@@ -37,11 +37,12 @@ public class Solution40 {
             result.add(new ArrayList<Integer>(tmp));
             return;
         }
-        if (pos >= freq.size()) {
+        if (pos >= freq.size()||target < freq.get(pos)[0]) {
             return;
         }
         dfs(pos + 1, target, freq, result, tmp);
-        int min = Math.min((freq.get(pos)[0]), freq.get(pos)[1]);
+
+        int min = Math.min((target/freq.get(pos)[0]), freq.get(pos)[1]);
         for (int i = 1; i <= min; i++) {
             tmp.add(freq.get(pos)[0]);
             dfs(pos + 1, target - i * freq.get(pos)[0], freq, result, tmp);

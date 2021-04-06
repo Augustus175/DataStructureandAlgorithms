@@ -31,6 +31,6 @@ public class No66 {
     }
 
     public Double GetMedian() {
-        return count%2==0 ? (double)(maxHeap.peek()+minHeap.peek())/2:minHeap.peek();
+        return count % 2 == 0 ? (double) (maxHeap.peek() + minHeap.peek()) / 2 : (double) minHeap.peek();
     }
 }
